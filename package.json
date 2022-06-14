@@ -1,0 +1,16 @@
+{
+  "name": "express-meteo",
+  "version": "1.0.0",
+  "description": "Nos han pedido crear una app para explotar, analizar diferentes tipos de datos meteorológicos",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
