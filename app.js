@@ -6,6 +6,9 @@ const path = require('path')
 console.log(__dirname);
 console.log(__filename);
 
+// Voy a importar el módulo que acabo de crear para convertir de celsius a farenheit
+// Es suficiente poner el nomnbre de la carpeta; cargara por defecto index.js, a no ser que le especifiques lo contrario.
+const utils = require('./utils');
 
 const app = express();
 
@@ -27,7 +30,8 @@ app.get("/convert", (req, res) => {
         return res.status(500).send("Lo siento no te he entendido");
     }
 
-    res.send(`Tu me has pasado ${celsius} ºC, y su valor en Farenheit es ${celsius * 1.8 + 32} F`);
+    res.send(`Tu me has pasado ${celsius} ºC, y su valor en Farenheit es ${(utils.celsiusToFarenheit(celsius))} F`);
 });
+
 
 app.listen(3000);

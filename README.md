@@ -15,3 +15,4 @@ Nos gustaria enviar un HTML con la página de about-us
 Nos gustaría un endpoint de nombre /convert ; que le pasamos un parámetro de nombre 'celsius', y nos devuelve una respuesta convirtiendo el valor del parámetro a farenheit.
 
 farenheit = (celsius *1,8) + 32
+
