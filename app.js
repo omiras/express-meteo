@@ -3,8 +3,6 @@ const express = require('express');
 
 // El módulo path nos permite obtener/rutas en el sistema de ficheros del servidor
 const path = require('path')
-console.log(__dirname);
-console.log(__filename);
 
 // Voy a importar el módulo que acabo de crear para convertir de celsius a farenheit
 // Es suficiente poner el nomnbre de la carpeta; cargara por defecto index.js, a no ser que le especifiques lo contrario.
@@ -24,13 +22,22 @@ app.get("/about-us", (req, res) => {
 });
 
 app.get("/convert", (req, res) => {
-    const celsius = req.query.celsius;
+    console.log(req.query)
+    const type = req.query.type; // tipo de conversión
+    const value = req.query.value; // valor
 
-    if (!celsius || isNaN(celsius)) {
-        return res.status(500).send("Lo siento no te he entendido");
+    //TODO: Comprobar la variable 'type'. Si es celsiusToFahrenheit, debemos invocar la función utils.celsiusToFarenheit y enviar una respuesta adecauda
+    // Altrament, si la variable 'type' es FahrenheitToCelsius, debemos invocar la función utils.fahrenheitToCelsius
+
+    if (type == "celsiusToFahrenheit") {
+        res.send(`${value} ºC --> ${utils.celsiusToFarenheit(value)} F`);
+        // 32 ºC --> 0 F
     }
 
-    res.send(`Tu me has pasado ${celsius} ºC, y su valor en Farenheit es ${(utils.celsiusToFarenheit(celsius))} F`);
+    else if (type == "FahrenheitToCelsius") {
+        res.send(`${value} F --> ${utils.fahrenheitToCelsius(value)} ºC`);
+    }
+
 });
 
 
